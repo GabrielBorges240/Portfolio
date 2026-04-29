@@ -1,0 +1,397 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head> 
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio</title>
+
+  <style>
+
+    /*   Transições globais */
+    * {
+      transition: 0.3s ease;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #ffffff;
+      background: linear-gradient(135deg,#1a1a1a, #2b2b2b, #3b3b3b, #1f1f1f);
+      background-size: 300% 300%;
+      animation: gradient  8s ease infinite;
+    }
+
+    html, body {
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
+    @keyframes gradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    .cabecalho {
+      background: rgba(0, 0, 0, 0.5);
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .cabecalho > img {
+      width: 200px;
+      border-radius: 12px;
+      backdrop-filter: blur(6px);
+      border: 2px solid rgba(255,255,255,0.4);
+      box-shadow: 0 0 20px rgba(255,255,255,0.1);
+    }
+
+   section {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.25);
+      backdrop-filter: blur(12px);
+      padding: 20px;
+      border-radius: 12px;
+      margin: 25px auto;
+      width: 80%;
+      box-shadow: 0 0 20px rgba(0,0,0,0.45);
+    }
+
+    .grid-info {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-areas: "sobre";
+      gap: 20px;
+      width: 90%;
+      margin: 20px auto;
+    }
+
+    h2 {
+      margin: 0;
+      color: #ffffff;
+      font-size: 1.5em;
+    }
+
+    ul {
+      margin: 0;
+      font-size: 1.1em;
+      line-height: 1.6;
+    }
+
+    ul li a {
+      color: #ffffff; 
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    ul li a:hover {
+      color: #e0e0e0; 
+      text-decoration: underline;
+    }
+
+    .rodape {
+      background: rgba(0, 0, 0, 0.6);
+      color: white;
+      text-align: center;
+      margin-top: 20px;
+      padding: 15px 20px;
+    }
+
+    .tecnologia-lista {
+      list-style: none;
+      padding: 0;
+      font-size: 1.1em;
+    }
+
+    .tecnologia-lista img {
+      width: 30px;
+      margin-right: 0;
+      flex: 0 0 30px;
+      transition: transform 0.3s ease, filter 0.3s ease;
+    }
+
+    .tecnologia-lista img:hover {
+      transform: scale(1.2);
+      filter: brightness(1.3);
+    }
+
+    .rodape img:hover {
+      transform: scale(1.1);
+      filter: brightness(1.3);
+      transition: 0.3s ease;
+    }
+
+    .cabecalho h2 {
+      color: #f5f5f5;
+      text-shadow: 0 0 2px #ffffff80, 0 0 4px #ffffff60, 0 0 6px #ffffff40;
+      animation: brilhoNome 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes brilhoNome {
+      0% { text-shadow: 0 0 2px #ffffff80, 0 0 4px #ffffff60, 0 0 6px #ffffff40; }
+      100% { text-shadow: 0 0 4px #ffffffb3, 0 0 8px #ffffff80, 0 0 12px #ffffff60; }
+    }
+
+    .cabecalho, .rodape {
+      background-color: #111;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+    }
+
+    .rodape a img {
+      width: 50px;
+      height: auto;
+      transition: transform 0.3s ease, filter 0.3s ease;
+      opacity: 0.9;
+    }
+
+    .rodape a img:hover {
+      transform: scale(1.1);
+      filter: brightness(1.4);
+      opacity: 1;
+    }
+
+    .tecnologia-lista li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin: 10px 0;
+    }
+
+    .tecnologia-lista .tech-text {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .tecnologia-lista .tech-text strong {
+      display: block;
+      margin: 0 0 2px 0;
+    }
+
+    .tecnologia-lista .tech-text span {
+      display: block;
+      line-height: 1.35;
+      overflow-wrap: anywhere;
+    }
+
+    .projeto-lista li > strong,
+    .projeto-lista li > a {
+      display: block;
+      margin-bottom: 2px;
+      line-height: 1.3;
+    }
+
+    .projeto-lista li > span {
+      display: block;
+      line-height: 1.35;
+      overflow-wrap: anywhere;
+    }
+
+    .tecnologia-lista small {
+      color: #ffffff;
+      font-size: 0.9em;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.25);
+      backdrop-filter: blur(12px);
+      padding: 14px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.45);
+    }
+
+    .sobre { grid-area: sobre; }
+
+    .grid-projetos {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas:
+        "academicos pessoais"
+        "tecnologias tecnologias";
+      gap: 20px;
+      width: 90%;
+      margin: 0px auto 20px auto;
+      align-items: start;
+      align-content: start;
+    }
+
+    .academicos  { grid-area: academicos; }
+    .pessoais    { grid-area: pessoais; }
+    .tecnologias { grid-area: tecnologias; }
+
+    .neon {
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 600;
+      text-shadow:
+        0 0 4px rgba(255, 255, 255, 0.6),
+        0 0 8px rgba(255, 255, 255, 0.5),
+        0 0 14px rgba(255, 255, 255, 0.4);
+      animation: neonPulse 2.5s ease-in-out infinite;
+    }
+
+    @keyframes neonPulse {
+      0%, 100% {
+        text-shadow:
+          0 0 4px rgba(255, 255, 255, 0.6),
+          0 0 8px rgba(255, 255, 255, 0.5),
+          0 0 14px rgba(255, 255, 255, 0.4);
+      }
+      50% {
+        text-shadow:
+          0 0 6px rgba(255, 255, 255, 0.8),
+          0 0 12px rgba(255, 255, 255, 0.7),
+          0 0 20px rgba(255, 255, 255, 0.6);
+      }
+    }
+
+    .neon:hover {
+      text-shadow:
+        0 0 8px rgba(255,255,255,1),
+        0 0 18px rgba(255,255,255,0.9),
+        0 0 28px rgba(255,255,255,0.8);
+    }
+
+    .card h2 { margin: 0 0 8px 0; }
+    .card h3 { margin: 10px 0 4px 0; }
+    .card ul { margin: 0; padding-left: 18px; }
+    .grid-projetos .card { align-self: stretch; }
+
+    .card li {
+      margin-bottom: 6px;
+      line-height: 1.4;
+      overflow-wrap: anywhere;
+    }
+
+    .card p { margin: 6px 0; }
+    .card li br { display: none; }
+
+    @media (max-width: 900px) {
+      .grid-projetos {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+          "academicos"
+          "pessoais"
+          "tecnologias";
+        width: 94%;
+        gap: 20px;
+      }
+
+      .grid-info { width: 94%; }
+      .cabecalho > img { width: min(200px, 55vw); }
+      .rodape a img { width: 42px; }
+      .tecnologia-lista { font-size: 1rem; }
+      .tecnologia-lista li { gap: 8px; }
+      .tecnologia-lista img { width: 24px; flex-basis: 24px; }
+      .projeto-lista li > strong, .projeto-lista li > a { font-size: 1rem; }
+      .projeto-lista li > span { font-size: 0.93rem; }
+    }
+
+    .rodape { margin-top: 20px; padding: 15px 20px; }
+    .rodape p { margin: 10px 0; }
+    .social-links { margin-top: 20px; }
+
+ 
+  </style>
+</head>
+
+<body>
+  <div class="cabecalho">
+    <h1 style="font-size: 1.50em;">I'm Gabriel Borges, back-end developer & AI Engineer</h1>
+       
+    
+   
+    <img src="./Retrato Neon de Estilo Cyberpunk~3.png" alt="Photo of Gabriel">
+  </div>
+
+  <main>
+    <div class="grid-info">
+      <div class="card sobre">
+        <h2>Summary</h2>
+        <ul>
+          <li>
+         Information Technology student focused on Artificial Intelligence and back-end development. Experienced in Python projects for automation, data manipulation, API development, and AI model integration. Currently deepening knowledge in Machine Learning and System Architecture, aiming to work as an AI Engineer by building intelligent, scalable, and data-driven applications.
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="grid-projetos">
+
+      <div class="card academicos">
+        <h2>Academic Projects</h2>
+        <h3>Back-end (Python)</h3>
+        <ul class="projeto-lista">
+          <li><strong>Fuel Consumption Calculation</strong><span>Program that calculates fuel efficiency based on distance and volume.</span></li>
+          <li><strong>Program Documentation</strong><span>Step-by-step documented Python code highlighting best practices.</span></li>
+          <li><strong>File Handling</strong><span>Program that reads text files and replaces vowels with symbols.</span></li>
+          <li><strong>Queue Implementation</strong><span>System that enqueues, dequeues, and queries elements via a menu.</span></li>
+          <li><strong>Recursive Summation</strong><span>Algorithm that sums the first N natural numbers using recursion.</span></li>
+        </ul>
+      </div>
+
+      <div class="card pessoais">
+        <h2>Personal Projects</h2>
+        <h3>Back-end</h3>
+        <ul class="projeto-lista">
+          <li>
+            <a href="https://api-universidade.onrender.com/docs" target="_blank" rel="noopener noreferrer" class="neon">API Universidade</a>
+            <span>Developed in Python (FastAPI) for academic data management. Provides endpoints for student, course, and grade registration, with AI integration for personalized recommendations. Focused on scalable architecture, data handling, and back-end best practices. </span>   
+         </li>   
+        </ul>
+      </div>
+
+      <div class="card tecnologias">
+        <h2>Technologies and Tools</h2>
+        <ul class="tecnologia-lista">
+          <li><img src="./base-de-dados (3).png" alt="Database icon" loading="lazy"><div class="tech-text"><strong>SQL / Databases</strong><span>Modeling, queries, and data manipulation.</span></div></li>
+          <li><img src="./machine-learning.png" alt="Scikit-learn" loading="lazy"><div class="tech-text"><strong>Scikit-learn</strong><span>Machine Learning library for Python.</span></div></li> 
+          <li><img src="./public-library (1).png" alt="Pandas · NumPy" loading="lazy"><div class="tech-text"><strong>Pandas · NumPy</strong><span>Data analysis and scientific computing.</span></div></li> 
+          <li><img src="./python.png" alt="Python icon" loading="lazy"><div class="tech-text"><strong>Python</strong><span>Automation, scripts, and back-end applications.</span></div></li>
+          <li><img src="./github (2).png " alt="GitHub icon" loading="lazy"><div class="tech-text"><strong>Git / GitHub</strong><span>Version control and collaboration on projects.</span></div></li>
+          <li><img src="./cloud-service.png" alt="REST API icon" loading="lazy"><div class="tech-text"><strong>REST APIs</strong><span>Creation and consumption of APIs.</span></div></li>
+        </ul>
+      </div>
+
+    </div>
+  </main>
+
+  <div class="rodape">
+    <p>© Gabriel Borges. All rights reserved. • 2026</p>
+    
+
+    <p class="social-links">
+      <a href="mailto:gabriel.borges.dev.ti@gmail.com" target="_blank" rel="noopener noreferrer" aria-label="Email">
+        <img src="./gmail (3).png" alt="Gmail" loading="lazy">
+      </a>
+      <a href="https://github.com/gabrielborges240" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+        <img src="./github (1).png" alt="GitHub" loading="lazy">
+      </a>
+      <a href="https://www.linkedin.com/in/gabriel-borges-00aa98345" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+        <img src="./linkedin (2).png" alt="LinkedIn" loading="lazy">
+      </a>
+    </p>
+  </div>
+</body>
+</html>
